@@ -37,15 +37,13 @@ public class Q14889 {
     static void backTracking(int depth, int index) {
         if (depth == N / 2) {
             calculateScore();
-            if (MIN == 0) {
-                return;
-            }
             return;
         }
 
         for (int i = index; i < N; i++) {
             isVisited[i] = true;
             backTracking(depth + 1, i + 1);
+            if (MIN == 0) return;
             isVisited[i] = false;
         }
     }
