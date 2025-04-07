@@ -1,6 +1,5 @@
-package graph;
+package graph.bfs;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**

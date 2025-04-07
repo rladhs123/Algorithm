@@ -1,16 +1,19 @@
-package graph;
+package graph.dfs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 /**
- * 너비 우선 탐색(bfs)
+ * 깊이 우선 탐색(dfs)
  */
-public class Q24445 {
+public class Q24480 {
 
     static int N, M, R;
     static List<Integer>[] graph;
-    static boolean[] isVisited;
     static int[] visited;
+    static int count = 1;
     static StringBuilder sb = new StringBuilder();
 
 
@@ -20,7 +23,6 @@ public class Q24445 {
         M = sc.nextInt();
         R = sc.nextInt();
         graph = new ArrayList[N + 1];
-        isVisited = new boolean[N + 1];
         visited = new int[N + 1];
 
         for (int i = 1; i < graph.length; i++) {
@@ -39,7 +41,7 @@ public class Q24445 {
             Collections.sort(graph[i], Collections.reverseOrder());
         }
 
-        bfs();
+        dfs(R);
 
         for (int i = 1; i < visited.length; i++) {
             sb.append(visited[i]).append("\n");
@@ -48,22 +50,13 @@ public class Q24445 {
         System.out.println(sb);
     }
 
-    static void bfs() {
-        Queue<Integer> queue = new LinkedList<>();
-        int num = 1;
-        isVisited[R] = true;
-        visited[R] = num;
-        queue.offer(R);
+    static void dfs(int node) {
+        visited[node] = count;
 
-        while (!queue.isEmpty()) {
-            Integer currNode = queue.poll();
-
-            for (int i = 0; i < graph[currNode].size(); i++) {
-                if (!isVisited[graph[currNode].get(i)]) {
-                    isVisited[graph[currNode].get(i)] = true;
-                    visited[graph[currNode].get(i)] = ++num;
-                    queue.offer(graph[currNode].get(i));
-                }
+        for (Integer nextNode : graph[node]) {
+            if (visited[nextNode] == 0) {
+                count++;
+                dfs(nextNode);
             }
         }
     }

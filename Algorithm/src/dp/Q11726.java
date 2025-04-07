@@ -22,7 +22,7 @@ public class Q11726 {
             for (int i = 2; i < N; i++) {
                 dp[i] = (dp[i - 1] + dp[i - 2]) % 10007;
             }
-            
+
             System.out.println(dp[N - 1]);
         } else {
             System.out.println(dp[0]);
