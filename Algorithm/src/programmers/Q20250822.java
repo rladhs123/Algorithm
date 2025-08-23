@@ -28,7 +28,6 @@ public class Q20250822 {
         }
 
         answer = Integer.parseInt(sb.toString());
-        
         return answer;
     }
 }
