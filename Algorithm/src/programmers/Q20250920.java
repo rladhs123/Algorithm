@@ -19,7 +19,7 @@ public class Q20250920 {
 
             players[nextIndex] = s;
             players[map.get(s)] = front;
-            
+
             map.put(s, nextIndex);
             map.put(front, nextIndex + 1);
         }
