@@ -23,7 +23,7 @@ public class Q20250923 {
 
         /*
         더 좋은 방식
-        
+
         int lastPainted = 0;
 
         for (int s : section) {
