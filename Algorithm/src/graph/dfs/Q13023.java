@@ -40,7 +40,7 @@ public class Q13023 {
             }
 
         }
-        
+
         System.out.println(0);
     }
 
