@@ -1,4 +1,4 @@
-package backtracking;
+package string;
 
 import java.util.Scanner;
 
