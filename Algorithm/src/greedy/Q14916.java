@@ -1,28 +1,28 @@
 package greedy;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Q14916 {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] array = new int[n];
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < n; i++) {
-            array[i] = sc.nextInt();
+        int count = 0;
 
-            if (array[i] < min) {
-                min = array[i];
+        while (n >= 0) {
+            if (n % 5 == 0) {
+                count += n / 5;
+                System.out.println(count);
+                return;
             }
 
-            if (array[i] > max) {
-                max = array[i];
-            }
+            n -= 2;
+            count++;
         }
 
-        System.out.println(max - min);
+        System.out.println(-1);
     }
 }
